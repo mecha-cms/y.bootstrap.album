@@ -1,21 +1,40 @@
 <header data-bs-theme="dark">
-  <div class="text-bg-dark collapse" id="navbar-header">
+  <div class="collapse text-bg-dark" id="navbar-header">
     <div class="container">
       <div class="row">
-        <div class="col-sm-8 col-md-7 py-4">
-          <h4>About</h4>
-          <p class="text-body-secondary">Add some information about the
-album below, the author, or any other background context. Make it a few
-sentences long so folks can pick up some informative tidbits. Then, link
- them off to some social networking sites or contact information.</p>
+        <div class="col-md-7 col-sm-8 py-4">
+          <?php if ($about->exist): ?>
+            <h4>
+              <?= $about->title; ?>
+            </h4>
+            <p class="text-body-secondary">
+              <?= $about->excerpt ?? $about->description; ?>
+            </p>
+          <?php else: ?>
+            <h4>
+              <?= i('Error'); ?>
+            </h4>
+            <p class="text-body-secondary" role="status">
+              <?= i('Missing %s file.', "<code>.\\lot\\page\\" . strtr(trim($state->routeAbout ?? 'about', '/'), '/', "\\") . ".page</code>"); ?>
+            </p>
+          <?php endif; ?>
         </div>
         <div class="col-sm-4 offset-md-1 py-4">
-          <h4>Contact</h4>
-          <ul class="list-unstyled">
-            <li><a href="#" class="text-white">Follow on Twitter</a></li>
-            <li><a href="#" class="text-white">Like on Facebook</a></li>
-            <li><a href="#" class="text-white">Email me</a></li>
-          </ul>
+          <?php if ($contact->exist): ?>
+            <h4>
+              <?= $contact->title; ?>
+            </h4>
+            <p class="text-body-secondary">
+              <?= $contact->excerpt ?? $contact->description; ?>
+            </p>
+          <?php else: ?>
+            <h4>
+              <?= i('Error'); ?>
+            </h4>
+            <p class="text-body-secondary" role="status">
+              <?= i('Missing %s file.', "<code>.\\lot\\page\\" . strtr(trim($state->routeContact ?? 'contact', '/'), '/', "\\") . ".page</code>"); ?>
+            </p>
+          <?php endif; ?>
         </div>
       </div>
     </div>

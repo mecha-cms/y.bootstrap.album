@@ -1,4 +1,4 @@
-<footer class="text-body-secondary py-5">
+<footer class="py-5 text-body-secondary">
   <div class="container">
     <p class="float-end mb-1">
       <a href="#top">
