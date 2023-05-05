@@ -13,16 +13,26 @@
                 <?php if ($image = $page->image(640, 360, 100)): ?>
                   <img alt="<?= eat($page->title); ?>" class="card-img-top img-fluid" height="360" src="<?= eat($image); ?>" width="640">
                 <?php else: ?>
-                  <span aria-label="<?= eat($page->title); ?>" class="bg-secondary card-img-top ratio ratio-16x9" role="img">
-                    <span class="align-items-center d-flex h3 justify-content-center p-4 text-center text-muted">
-                      <?= $page->title; ?>
+                  <span aria-label="<?= eat($page->title); ?>" class="card-img-top overflow-hidden ratio ratio-16x9" role="img">
+                    <span class="align-items-center bg-body-secondary d-flex h-100 justify-content-center p-4 text-body-tertiary">
+                      <svg aria-hidden="true" class="bi bi-camera" fill="currentColor" height="80" viewBox="0 0 16 16" width="80" xmlns="http://www.w3.org/2000/svg">
+                        <path d="M15 12a1 1 0 0 1-1 1H2a1 1 0 0 1-1-1V6a1 1 0 0 1 1-1h1.172a3 3 0 0 0 2.12-.879l.83-.828A1 1 0 0 1 6.827 3h2.344a1 1 0 0 1 .707.293l.828.828A3 3 0 0 0 12.828 5H14a1 1 0 0 1 1 1v6zM2 4a2 2 0 0 0-2 2v6a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V6a2 2 0 0 0-2-2h-1.172a2 2 0 0 1-1.414-.586l-.828-.828A2 2 0 0 0 9.172 2H6.828a2 2 0 0 0-1.414.586l-.828.828A2 2 0 0 1 3.172 4H2z"></path>
+                        <path d="M8 11a2.5 2.5 0 1 1 0-5 2.5 2.5 0 0 1 0 5zm0 1a3.5 3.5 0 1 0 0-7 3.5 3.5 0 0 0 0 7zM3 6.5a.5.5 0 1 1-1 0 .5.5 0 0 1 1 0z"></path>
+                      </svg>
                     </span>
                   </span>
                 <?php endif; ?>
                 <div class="card-body d-flex flex-column">
-                  <p class="card-text">
-                    <?= To::description($page->description, 360); ?>
-                  </p>
+                  <?php if ($title = $page->title): ?>
+                    <h3 class="card-title h4">
+                      <?= $title; ?>
+                    </h3>
+                  <?php endif; ?>
+                  <?php if ($description = To::description($page->description, 360)): ?>
+                    <p class="card-text">
+                      <?= $description; ?>
+                    </p>
+                  <?php endif; ?>
                   <div class="align-items-center d-flex justify-content-between mt-auto">
                     <div class="btn-group">
                       <a class="btn btn-outline-secondary btn-sm" href="<?= eat($page->url); ?>">

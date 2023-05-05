@@ -30,3 +30,25 @@ if ($file = exist([
 ], 1)) {
     $GLOBALS['contact'] = new Page($file);
 }
+
+Hook::set('page.content', function ($content) {
+    if (!$content) {
+        return $content;
+    }
+    $content = strtr($content, [
+        '<blockquote>' => '<blockquote class="blockquote">',
+        '<table>' => '<table class="table">'
+    ]);
+    if (false !== strpos($content, '<img ')) {
+        $content = preg_replace_callback('/<img(\s[^>]*?)?>/', static function ($m) {
+            $img = new HTML($m[0]);
+            $img_classes = preg_split('/\s+/', $img['class'] ?? "", -1, PREG_SPLIT_NO_EMPTY);
+            $img_classes[] = 'img-fluid';
+            $img_classes[] = 'rounded';
+            sort($img_classes);
+            $img['class'] = implode(' ', array_unique($img_classes));
+            return (string) $img;
+        }, $content);
+    }
+    return $content;
+});
