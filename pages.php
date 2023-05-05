@@ -28,7 +28,7 @@
                       <?= $title; ?>
                     </h3>
                   <?php endif; ?>
-                  <?php if ($description = To::description($page->description, 360)): ?>
+                  <?php if ($description = To::description($page->description, 120)): ?>
                     <p class="card-text">
                       <?= $description; ?>
                     </p>

@@ -1,6 +1,6 @@
 ---
 title: Bootstrap Album
-description: Lorem ipsum dolor sit amet.
+description: Simple layout for photo galleries, portfolios, and more.
 image: /lot/y/bootstrap.album/index.png
 images:
 - /lot/y/bootstrap.album/index.png
@@ -10,4 +10,4 @@ author: Taufik Nurrohman
 version: 1.0.0
 ...
 
-Lorem ipsum dolor sit amet.
+A fully functional layout from the Bootstrap’s album example.

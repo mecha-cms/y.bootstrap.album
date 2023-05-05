@@ -1,5 +1,5 @@
 <?= self::enter(); ?>
-<div class="py-5">
+<div class="<?= $site->is('home') ? 'bg-body-tertiary ' : ""; ?>py-5">
   <div class="container">
     <?php if ($page->exist): ?>
       <div class="g-5 row">
