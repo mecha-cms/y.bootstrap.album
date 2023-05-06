@@ -5,7 +5,13 @@
         <?= i('Back to top'); ?>
       </a>
     </p>
-    <p class="mb-1">Album example is © Bootstrap, but please download and customize it for yourself!</p>
-    <p class="mb-0">New to Bootstrap? <a href="https://getbootstrap.com/">Visit the homepage</a> or read our <a href="https://getbootstrap.com/docs/5.3/getting-started/introduction/">getting started guide</a>.</p>
+    <p class="mb-1">
+      &#xa9; <?= $date->year; ?> &#xb7; <a href="<?= eat($url); ?>">
+        <?= $site->title; ?>
+      </a>
+    </p>
+    <p class="mb-0">
+      <?= $site->description; ?>
+    </p>
   </div>
 </footer>

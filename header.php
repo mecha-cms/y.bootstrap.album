@@ -7,15 +7,26 @@
             <h4>
               <?= $about->title; ?>
             </h4>
-            <p class="text-body-secondary">
-              <?= $about->excerpt ?? $about->description; ?>
-            </p>
+            <div class="text-body-secondary">
+              <?php if ($excerpt = $about->excerpt): ?>
+                <?= $excerpt; ?>
+              <?php else: ?>
+                <p>
+                  <?= $about->description; ?>
+                </p>
+              <?php endif; ?>
+              <p>
+                <a class="btn btn-primary btn-sm<?= 0 === strpos($url->current(false, false) . '/', $about->url . '/') ? ' disabled' : ""; ?>" href="<?= eat($about->url); ?>">
+                  <?= i('More'); ?>
+                </a>
+              </p>
+            </div>
           <?php else: ?>
             <h4>
               <?= i('Error'); ?>
             </h4>
             <p class="text-body-secondary" role="status">
-              <?= i('Missing %s file.', "<code>.\\lot\\page\\" . strtr(trim($state->routeAbout ?? 'about', '/'), '/', "\\") . ".page</code>"); ?>
+              <?= i('Missing %s file.', "<code>.\\lot\\page\\" . strtr(trim($state->routeAbout ?? 'about', '/'), '/', "\\") . '.page</code>'); ?>
             </p>
           <?php endif; ?>
         </div>
@@ -24,15 +35,26 @@
             <h4>
               <?= $contact->title; ?>
             </h4>
-            <p class="text-body-secondary">
-              <?= $contact->excerpt ?? $contact->description; ?>
-            </p>
+            <div class="text-body-secondary">
+              <?php if ($excerpt = $contact->excerpt): ?>
+                <?= $excerpt; ?>
+              <?php else: ?>
+                <p>
+                  <?= $contact->description; ?>
+                </p>
+              <?php endif; ?>
+              <p>
+                <a class="btn btn-primary btn-sm<?= 0 === strpos($url->current(false, false) . '/', $contact->url . '/') ? ' disabled' : ""; ?>" href="<?= eat($contact->url); ?>">
+                  <?= i('More'); ?>
+                </a>
+              </p>
+            </div>
           <?php else: ?>
             <h4>
               <?= i('Error'); ?>
             </h4>
             <p class="text-body-secondary" role="status">
-              <?= i('Missing %s file.', "<code>.\\lot\\page\\" . strtr(trim($state->routeContact ?? 'contact', '/'), '/', "\\") . ".page</code>"); ?>
+              <?= i('Missing %s file.', "<code>.\\lot\\page\\" . strtr(trim($state->routeContact ?? 'contact', '/'), '/', "\\") . '.page</code>'); ?>
             </p>
           <?php endif; ?>
         </div>

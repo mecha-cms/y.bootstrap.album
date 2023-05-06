@@ -1,0 +1,15 @@
+{
+  "description": "Simple layout for photo galleries, portfolios, and more.",
+  "license": "GPL-3.0-or-later",
+  "name": "mecha-cms/y.bootstrap.album",
+  "require": {
+    "mecha-cms/x.excerpt": "^1.1.0",
+    "mecha-cms/x.image": "^2.4.0",
+    "mecha-cms/x.view": "^3.0.0"
+  },
+  "suggest": {
+    "mecha-cms/x.panel": "The edit button is not available without this extension.",
+    "mecha-cms/x.panel.image": "Install this extension if you want to have a proper featured image field in the control panel.",
+    "mecha-cms/x.user": "The edit button is not available without this extension."
+  }
+}
