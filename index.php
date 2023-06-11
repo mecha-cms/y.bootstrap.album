@@ -52,3 +52,13 @@ Hook::set('page.content', function ($content) {
     }
     return $content;
 });
+
+Hook::set('y.t-o-c', function ($y) {
+    $class = preg_split('/\s+/', $y[2]['class'] ?? "", -1, PREG_SPLIT_NO_EMPTY);
+    $class[] = 'mb-4';
+    sort($class);
+    if ($class) {
+        $y[2]['class'] = \implode(' ', \array_unique($class));
+    }
+    return $y;
+});
