@@ -23,12 +23,12 @@ title: Album Title
 description: Album description.
 author: Album Author
 type: Markdown
-image: /lot/image/album/2013/cover.jpg
+image: /lot/image/album/2023/cover.jpg
 images:
-- /lot/image/album/2013/photo-1.jpg
-- /lot/image/album/2013/photo-2.jpg
-- /lot/image/album/2013/photo-3.jpg
-- /lot/image/album/2013/photo-4.jpg
+- /lot/image/album/2023/photo-1.jpg
+- /lot/image/album/2023/photo-2.jpg
+- /lot/image/album/2023/photo-3.jpg
+- /lot/image/album/2023/photo-4.jpg
 ...
 
 Album content.
