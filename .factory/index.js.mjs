@@ -1,4 +1,4 @@
-// This layout does not need the Popper feature so including `bootstrap.js` file without the extra(s) is enough
+/// fetch('../node_modules/bootstrap/dist/js/bootstrap.bundle.js');
 
-// import '../node_modules/bootstrap/dist/js/bootstrap.bundle.js';
-import '../node_modules/bootstrap/dist/js/bootstrap.js';
+// TODO: Remove this line when `@taufik-nurrohman/factory` is able to preserve the top comment line via Babel/Rollup
+window.bootstrap[""] = 1;

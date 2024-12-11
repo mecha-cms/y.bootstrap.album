@@ -4,31 +4,28 @@ $z = defined('TEST') && TEST ? '.' : '.min.';
 Asset::set(__DIR__ . D . 'index' . $z . 'css', 20);
 Asset::set(__DIR__ . D . 'index' . $z . 'js', 20);
 
-foreach ([
+$states = [
     'route-about' => '/about',
     'route-album' => '/article',
     'route-contact' => '/contact',
     'x.comment.page.type' => 'Markdown',
     'x.page.page.type' => 'Markdown'
-] as $k => $v) {
+];
+
+foreach ($states as $k => $v) {
     !State::get($k) && State::set($k, $v);
 }
 
-$GLOBALS['about'] = new Page;
-$GLOBALS['contact'] = new Page;
-
-if ($file = exist([
-    LOT . D . 'page' . D . trim($state->routeAbout ?? 'about', '/') . '.archive',
-    LOT . D . 'page' . D . trim($state->routeAbout ?? 'about', '/') . '.page'
-], 1)) {
-    $GLOBALS['about'] = new Page($file);
-}
-
-if ($file = exist([
-    LOT . D . 'page' . D . trim($state->routeContact ?? 'contact', '/') . '.archive',
-    LOT . D . 'page' . D . trim($state->routeContact ?? 'contact', '/') . '.page'
-], 1)) {
-    $GLOBALS['contact'] = new Page($file);
+foreach (['about', 'contact'] as $v) {
+    $folder = LOT . D . 'page' . D . trim($state->{f2p('route-' . $v)} ?? $v, '/');
+    if ($file = exist([
+        $folder . '.archive',
+        $folder . '.page'
+    ], 1)) {
+        lot($v, new Page($file));
+    } else {
+        lot($v, new Page);
+    }
 }
 
 Hook::set('page.content', function ($content) {
