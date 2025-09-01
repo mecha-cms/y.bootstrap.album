@@ -8,7 +8,7 @@ images:
 - /lot/y/bootstrap.album/index/2.png
 link: 'https://getbootstrap.com/docs/5.3/examples/album'
 author: Taufik Nurrohman
-version: 1.0.0
+version: 1.1.0
 ...
 
 A fully functional layout from the Bootstrap’s album example.

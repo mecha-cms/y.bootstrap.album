@@ -34,7 +34,8 @@
                   <?php endif; ?>
                   <div class="align-items-center d-flex justify-content-between mt-auto">
                     <div class="btn-group">
-                      <a class="btn btn-outline-secondary btn-sm" href="<?= eat($page->url); ?>">
+                      <?php $children = $page->children ?? false; ?>
+                      <a class="btn btn-outline-secondary btn-sm" href="<?= eat($page->url . ($children && $children->count ? '/1' : "")); ?>">
                         <?= i('View'); ?>
                       </a>
                       <?php if ($x_panel && $x_user && $is_user): ?>
@@ -50,7 +51,7 @@
                       <?php endif; ?>
                     </div>
                     <small class="text-body-secondary">
-                      <?= $page->view; ?>
+                      <?= i('%d View' . (1 === ($view = $page->view) ? "" : 's'), [$view]); ?>
                     </small>
                   </div>
                 </div>
