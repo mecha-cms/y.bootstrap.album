@@ -1,7 +1,7 @@
 {
   "dependencies": {
-    "@taufik-nurrohman/factory": "^2.2.4",
-    "bootstrap": "^5.3.3"
+    "@taufik-nurrohman/factory": "2.2.4",
+    "bootstrap": "5.3.3"
   },
   "scripts": {
     "pack": "pack --clean=false --from=.factory --to=."
